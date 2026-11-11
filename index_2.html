@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zeel Gondaliya — Digital Forensics &amp; Hardware Security</title>
+<meta name="description" content="Zeel Gondaliya — digital forensics and cyber security researcher specialising in hardware-level evidence recovery from encrypted devices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f17; --surface:#111826; --surface-2:#0d1320;
+    --text:#e9edf5; --muted:#95a1b6; --faint:#60708a;
+    --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.16);
+    --accent:#54ddc4; --accent-2:#7af0dd; --accent-ink:#06211c; --accent-dim:rgba(84,221,196,.12);
+    --maxw:980px;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:calc(66px + env(safe-area-inset-top,0px));
+    -webkit-text-size-adjust:100%;
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden; position:relative;
+  }
+  /* faint technical grid in the background */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.035) 1px, transparent 1.4px);
+    background-size:28px 28px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 80%);
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 35%, transparent 80%);
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important; scroll-behavior:auto;}}
+
+  a{color:var(--accent); text-decoration:none;}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif; font-weight:600; line-height:1.12; margin:0;}
+
+  /* scroll progress */
+  .progress{position:fixed; top:0; left:0; height:3px; width:100%; transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,var(--accent),var(--accent-2)); z-index:40; will-change:transform;}
+
+  /* ---- nav ---- */
+  .nav{
+    position:sticky; top:0; z-index:20;
+    padding:calc(env(safe-area-inset-top,0px) + 14px) clamp(20px,5vw,34px) 14px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+    background:rgba(11,15,23,.72); backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:1.02rem; color:var(--text); letter-spacing:-.01em; display:flex; align-items:center; gap:10px;}
+  .brand .logo{width:23px; height:23px; flex:none; color:var(--accent); animation:breathe 3.2s ease-in-out infinite;}
+  @keyframes breathe{0%,100%{filter:drop-shadow(0 0 1px rgba(84,221,196,.4));} 50%{filter:drop-shadow(0 0 5px rgba(84,221,196,.9));}}
+  .navlinks{display:flex; gap:26px; font-size:.9rem;}
+  .navlinks a{color:var(--muted); transition:color .18s; position:relative;}
+  .navlinks a::after{content:""; position:absolute; left:0; bottom:-7px; height:2px; width:100%; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .25s cubic-bezier(.2,.7,.2,1);}
+  .navlinks a:hover{color:var(--text);}
+  .navlinks a:hover::after,.navlinks a.active::after{transform:scaleX(1);}
+  .navlinks a.active{color:var(--accent);}
+  @media (max-width:680px){.navlinks{display:none;}}
+
+  main{display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,34px);}
+  section{padding:clamp(54px,9vw,92px) 0;}
+  section + section{border-top:1px solid var(--line);}
+
+  .eyebrow{font-family:"Space Grotesk",sans-serif; color:var(--accent); font-weight:500; font-size:.92rem; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .eyebrow::before{content:"//"; font-family:var(--mono); font-weight:700; opacity:.85; letter-spacing:-.06em;}
+  h2.sec{font-size:clamp(1.45rem,3.6vw,2rem); letter-spacing:-.02em; margin-bottom:34px;}
+
+  /* ---- hero ---- */
+  .hero{padding-top:clamp(48px,8vw,84px); position:relative; overflow:hidden;}
+  .hero::before{content:""; position:absolute; right:-40px; top:8%; width:420px; height:420px; pointer-events:none; z-index:0;
+    background:radial-gradient(circle, rgba(84,221,196,.16), rgba(84,221,196,.05) 45%, transparent 68%); filter:blur(26px);}
+  @media (max-width:760px){.hero::before{width:280px; height:280px; right:-80px; top:30%; opacity:.7;}}
+  .hero .wrap{position:relative; z-index:1;}
+  .hero-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:center;}
+  @media (max-width:760px){.hero-grid{grid-template-columns:1fr; gap:34px;}}
+  .hero h1{font-size:clamp(2.3rem,6.4vw,3.8rem); letter-spacing:-.03em; font-weight:700;}
+  .role{font-family:"Space Grotesk",sans-serif; color:var(--muted); font-size:clamp(1.05rem,2.6vw,1.3rem); margin:16px 0 22px; font-weight:500;}
+  .lead{color:#c6cedd; font-size:1.06rem; max-width:62ch; margin:0 0 14px;}
+  .hero .fade{opacity:0; transform:translateY(10px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero .fade:nth-child(2){animation-delay:.06s;} .hero .fade:nth-child(3){animation-delay:.12s;} .hero .fade:nth-child(4){animation-delay:.18s;}
+  @keyframes rise{to{opacity:1; transform:none;}}
+
+  .actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;}
+  .btn{display:inline-flex; align-items:center; gap:9px; padding:11px 17px; border-radius:9px; font-size:.94rem; font-weight:500; border:1px solid var(--line-strong); color:var(--text); background:transparent; transition:border-color .18s, background .18s, transform .18s, box-shadow .18s;}
+  .btn svg{width:17px; height:17px;}
+  .btn:hover{border-color:var(--accent); background:var(--accent-dim); transform:translateY(-2px);}
+  .btn.primary{background:var(--accent); color:var(--accent-ink); border-color:var(--accent); font-weight:600;}
+  .btn.primary:hover{filter:brightness(1.07); background:var(--accent); box-shadow:0 8px 24px rgba(84,221,196,.28);}
+
+  /* chip motif */
+  .chip{width:100%; max-width:320px; margin-left:auto; display:block; filter:drop-shadow(0 10px 40px rgba(84,221,196,.12));}
+  @media (max-width:760px){.chip{max-width:210px; margin:0;}}
+  .chipframe{animation:frame 3.6s ease-in-out infinite;}
+  @keyframes frame{0%,100%{stroke-opacity:.3;} 50%{stroke-opacity:.62;}}
+  .scan{animation:scan 3.6s cubic-bezier(.4,0,.2,1) infinite;}
+  @keyframes scan{0%{transform:translateY(0); opacity:0;} 8%{opacity:1;} 85%{opacity:1;} 100%{transform:translateY(205px); opacity:0;}}
+  .ball{animation:pulse 2.8s ease-in-out infinite;}
+  .ball.b2{animation-delay:.5s;} .ball.b3{animation-delay:1s;} .ball.b4{animation-delay:1.5s;} .ball.b5{animation-delay:2s;}
+  @keyframes pulse{0%,100%{opacity:.22;} 50%{opacity:.98; filter:drop-shadow(0 0 5px rgba(84,221,196,.9));}}
+
+  /* ---- entries ---- */
+  .entry{padding:22px 22px 22px 22px; border-left:2px solid var(--line); border-radius:0 8px 8px 0; transition:border-color .25s, background .25s, opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);}
+  .entry + .entry{border-top:1px solid var(--line);}
+  .entry:hover{border-left-color:var(--accent); background:linear-gradient(90deg, var(--accent-dim), rgba(84,221,196,0) 55%);}
+  .entry-head{display:flex; justify-content:space-between; align-items:baseline; gap:18px; flex-wrap:wrap;}
+  .entry h3{font-size:1.18rem; letter-spacing:-.01em;}
+  .meta{color:var(--faint); font-size:.86rem; font-family:var(--mono); white-space:nowrap;}
+  .entry p{color:var(--muted); margin:10px 0 0; max-width:66ch;}
+  .taglist{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag{font-family:var(--mono); font-size:.76rem; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:4px 9px; transition:border-color .2s, color .2s;}
+  .entry:hover .tag{border-color:rgba(84,221,196,.35); color:#c6cedd;}
+  .links{margin-top:18px; display:flex; gap:20px; flex-wrap:wrap; font-size:.92rem; font-weight:500;}
+  .links a{display:inline-flex; align-items:center; gap:7px; transition:transform .18s;}
+  .links a:hover{text-decoration:underline; text-underline-offset:3px; transform:translateY(-1px);}
+  .links svg{width:15px; height:15px;}
+
+  /* ---- experience ---- */
+  .job{display:grid; grid-template-columns:140px 1fr; gap:10px 28px; padding:20px 0; transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);}
+  .job + .job{border-top:1px solid var(--line);}
+  @media (max-width:620px){.job{grid-template-columns:1fr; gap:6px;}}
+  .job .when{color:var(--faint); font-family:var(--mono); font-size:.84rem; padding-top:4px;}
+  .job h3{font-size:1.06rem;}
+  .job .org{color:var(--accent); font-size:.95rem; margin-top:3px;}
+  .job p{color:var(--muted); margin:9px 0 0; max-width:62ch;}
+  .job:nth-of-type(2){transition-delay:.06s;} .job:nth-of-type(3){transition-delay:.12s;}
+
+  /* ---- skills ---- */
+  .skillgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:30px 40px;}
+  .skillgroup{transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);}
+  .skillgroup:nth-of-type(2){transition-delay:.05s;} .skillgroup:nth-of-type(3){transition-delay:.1s;} .skillgroup:nth-of-type(4){transition-delay:.15s;} .skillgroup:nth-of-type(5){transition-delay:.2s;}
+  .skillgroup h3{font-size:.98rem; color:var(--text); margin-bottom:14px; font-family:"Space Grotesk",sans-serif;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chips span{font-family:var(--mono); font-size:.8rem; color:var(--muted); background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:6px 10px; transition:border-color .2s, color .2s, transform .2s;}
+  .chips span:hover{border-color:rgba(84,221,196,.45); color:var(--text); transform:translateY(-2px);}
+
+  /* ---- education ---- */
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:680px){.twocol{grid-template-columns:1fr; gap:34px;}}
+  .educol{transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);}
+  .educol:nth-of-type(2){transition-delay:.08s;}
+  .colhead{font-family:"Space Grotesk",sans-serif; font-size:1.05rem; margin-bottom:20px; color:var(--text);}
+  .item{padding:14px 0; border-top:1px solid var(--line);}
+  .item:first-of-type{border-top:none; padding-top:0;}
+  .item h3{font-size:1.02rem;}
+  .item .sub{color:var(--muted); font-size:.92rem; margin-top:4px;}
+  .item .tiny{color:var(--faint); font-family:var(--mono); font-size:.8rem; margin-top:4px;}
+  .award{color:var(--accent); font-size:.86rem; font-weight:600;}
+
+  /* ---- contact ---- */
+  .contact-lead{font-size:clamp(1.3rem,3.4vw,1.9rem); font-family:"Space Grotesk",sans-serif; max-width:20ch; letter-spacing:-.02em; margin-bottom:26px;}
+  .email-big{font-size:clamp(1.1rem,3vw,1.5rem); font-weight:500;}
+  .email-big:hover{text-decoration:underline; text-underline-offset:4px;}
+  .contact-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:26px;}
+
+  footer{border-top:1px solid var(--line); padding:30px clamp(20px,5vw,34px) calc(30px + env(safe-area-inset-bottom,0px)); color:var(--faint); font-size:.84rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  /* ---- reveal ---- */
+  .reveal{opacity:0; transform:translateY(18px) scale(.986);}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* Word-style justified paragraphs */
+  .lead, .entry p, .job p{text-align:justify; text-justify:inter-word;}
+
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="nav">
+  <span class="brand"><svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Logo"><circle cx="10" cy="10" r="6.5"/><line x1="15" y1="15" x2="20.5" y2="20.5"/><circle cx="10" cy="8.4" r="1.5" fill="currentColor" stroke="none"/><path d="M10 9.5 L8.9 13 L11.1 13 Z" fill="currentColor" stroke="none"/></svg>Digital Forensics</span>
+  <nav class="navlinks" aria-label="Sections">
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1 class="fade">Zeel Gondaliya</h1>
+          <p class="role fade">Digital Forensics &amp; Hardware Security Researcher</p>
+          <p class="lead fade">I recover evidence from damaged, hardware-encrypted devices from the secure enclaves in modern phones to the hardware security modules now built into connected vehicles. The techniques that worked a decade ago fail against today’s silicon, so my work is about what replaces them.</p>
+          <p class="lead fade">Currently an MSc researcher and cybersecurity &amp; digital-forensics laboratory technician in London.</p>
+          <div class="actions fade">
+            <a class="btn primary" href="mailto:zeelgondaliya122@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Email me
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/zeel-gondaliya-9b48a2191" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.3v1.6h.1c.5-.9 1.6-1.9 3.3-1.9 3.6 0 4.2 2.3 4.2 5.4v6.3zM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1zM7.1 20.4H3.6V9h3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn" href="https://github.com/dkgondaliya" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="btn" href="https://drive.google.com/drive/folders/1DtxXRh7utiCA7jYDFZyyY9SQ_3M6icqQ?usp=drive_link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              CV
+            </a>
+          </div>
+        </div>
+        <svg class="chip" viewBox="0 0 300 300" role="img" aria-label="Stylised ball-grid-array chip package with an animated scanner">
+          <defs>
+            <pattern id="bga" width="30" height="30" patternUnits="userSpaceOnUse">
+              <circle cx="15" cy="15" r="4.6" fill="#54ddc4" opacity="0.16"/>
+            </pattern>
+            <clipPath id="chipclip"><rect x="46" y="46" width="208" height="208" rx="14"/></clipPath>
+            <linearGradient id="scangrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#54ddc4" stop-opacity="0"/>
+              <stop offset="0.5" stop-color="#7af0dd" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#54ddc4" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect class="chipframe" x="46" y="46" width="208" height="208" rx="14" fill="none" stroke="#54ddc4" stroke-opacity="0.35" stroke-width="1.5"/>
+          <rect x="46" y="46" width="208" height="208" clip-path="url(#chipclip)" fill="url(#bga)"/>
+          <g clip-path="url(#chipclip)">
+            <rect class="scan" x="46" y="46" width="208" height="2.6" fill="url(#scangrad)"/>
+          </g>
+          <circle cx="68" cy="68" r="4.6" fill="#54ddc4" opacity="0.95"/>
+          <circle class="ball" cx="128" cy="98" r="4.6" fill="#54ddc4"/>
+          <circle class="ball b2" cx="188" cy="158" r="4.6" fill="#54ddc4"/>
+          <circle class="ball b3" cx="98" cy="188" r="4.6" fill="#54ddc4"/>
+          <circle class="ball b4" cx="218" cy="98" r="4.6" fill="#54ddc4"/>
+          <circle class="ball b5" cx="158" cy="218" r="4.6" fill="#54ddc4"/>
+          <g stroke="#54ddc4" stroke-opacity="0.25" stroke-width="1.5">
+            <path d="M46 96h-22 M46 150h-22 M46 204h-22"/>
+            <path d="M254 96h22 M254 150h22 M254 204h22"/>
+            <path d="M96 46v-22 M150 46v-22 M204 46v-22"/>
+            <path d="M96 254v22 M150 254v22 M204 254v22"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="wrap">
+      <p class="eyebrow">Research</p>
+      <h2 class="sec">Hardware forensics &amp; wireless security research</h2>
+
+      <div class="entry reveal">
+        <div class="entry-head">
+          <h3>Efficacy &amp; Limitations of ISP / Chip-Off on Hardware-Encrypted Android</h3>
+          <span class="meta">2025–26</span>
+        </div>
+        <p>A comparative, component-level study of why file-based encryption and the Titan M secure enclave invalidate traditional memory forensics on the Google Pixel 5a. It shows that destructive chip-off only yields ciphertext on modern devices, and proposes constructive hardware repair reviving the device so its own hardware decrypts as the viable route to evidence.</p>
+        <div class="taglist"><span class="tag">ISP</span><span class="tag">chip-off</span><span class="tag">secure enclave</span><span class="tag">eMMC / UFS</span><span class="tag">micro-soldering</span></div>
+        <div class="links">
+          <a href="https://drive.google.com/drive/folders/1Va1tQIKZ---ckmZFt3gu5EhEJ-9iux5g?usp=sharing" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+            Read the paper
+          </a>
+        </div>
+      </div>
+
+      <div class="entry reveal">
+        <div class="entry-head">
+          <h3>IIoT Wi-Fi Deauthentication Resilience</h3>
+          <span class="meta">2023–25</span>
+        </div>
+        <p>Research into the resilience of Industrial IoT networks to IEEE 802.11 deauthentication attacks. The work builds a tool that tests and passively detects these attacks, parses RSN information elements, and analyses whether WPA2/WPA3 Protected Management Frames (PMF) actually defend against them. It extends Dan McInerney’s <em>wifijammer</em> with a passive detector and PMF/WPA3 resilience analysis of my own.</p>
+        <div class="taglist"><span class="tag">Python</span><span class="tag">Scapy</span><span class="tag">802.11</span><span class="tag">WPA3 / PMF</span><span class="tag">IIoT</span></div>
+        <div class="links">
+          <a href="https://drive.google.com/drive/folders/10ahYbe2o95QgPod2D2HosL-l_KoPfzDN?usp=sharing">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+            Read the paper
+          </a>
+          <a href="https://github.com/dkgondaliya/IIot-wifi-deauth-research" target="_blank" rel="noopener" data-fill="github-repo-url">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="eyebrow">Experience</p>
+      <h2 class="sec">Where I’ve worked</h2>
+
+      <div class="job reveal">
+        <div class="when">2026 — present</div>
+        <div>
+          <h3>Cybersecurity &amp; Digital Forensics Lab Technician</h3>
+          <div class="org">University of East London</div>
+          <p>Maintain specialised digital-forensics lab environments and hardware diagnostic tools, and guide students through forensic acquisition workflows, tool configuration and secure-network setup.</p>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">2024</div>
+        <div>
+          <h3>IT Lab Technician Intern</h3>
+          <div class="org">University of East London</div>
+          <p>Supported and maintained campus computing across roughly 3,000 machines, and set up server-room infrastructure that improved lab efficiency.</p>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">2021</div>
+        <div>
+          <h3>Web Security Analyst</h3>
+          <div class="org">My Info Pie</div>
+          <p>Identified and remediated web-application vulnerabilities XSS, SQL injection and broken authentication in production systems using Burp Suite and OpenVAS, aligned to the OWASP Top 10.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="eyebrow">Toolkit</p>
+      <h2 class="sec">Skills &amp; tools</h2>
+      <div class="skillgrid">
+        <div class="skillgroup reveal">
+          <h3>Digital Forensics &amp; IR</h3>
+          <div class="chips"><span>Autopsy</span><span>Ghidra</span><span>MITRE ATT&amp;CK</span><span>Malware &amp; Log Analysis</span></div>
+        </div>
+        <div class="skillgroup reveal">
+          <h3>Web &amp; Application Security</h3>
+          <div class="chips"><span>Burp Suite</span><span>OpenVAS</span><span>Metasploit</span><span>Nessus</span></div>
+        </div>
+        <div class="skillgroup reveal">
+          <h3>Network Analysis &amp; Monitoring</h3>
+          <div class="chips"><span>Wireshark</span><span>Nmap</span><span>Malcolm</span><span>Microsoft Sentinel</span></div>
+        </div>
+        <div class="skillgroup reveal">
+          <h3>Recon &amp; Adversary Simulation</h3>
+          <div class="chips"><span>Spiderfoot</span><span>BeEF</span></div>
+        </div>
+        <div class="skillgroup reveal">
+          <h3>Frameworks &amp; Standards</h3>
+          <div class="chips"><span>NIST CSF</span><span>ISO/IEC 27001</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <p class="eyebrow">Background</p>
+      <h2 class="sec">Education &amp; certifications</h2>
+      <div class="twocol">
+        <div class="educol reveal">
+          <div class="colhead">Education</div>
+          <div class="item">
+            <h3>MSc Information Security &amp; Digital Forensics</h3>
+            <div class="sub">University of East London</div>
+            <div class="award">Distinction</div>
+            <div class="tiny">2025 — 2026</div>
+          </div>
+          <div class="item">
+            <h3>BSc (Hons) Cyber Security &amp; Networks</h3>
+            <div class="sub">University of East London</div>
+            <div class="award">First Class with Distinction</div>
+            <div class="tiny">2023 — 2025</div>
+          </div>
+          <div class="item">
+            <h3>Diploma in Computer Science</h3>
+            <div class="sub">Parul University, India</div>
+            <div class="tiny">2020 — 2023</div>
+          </div>
+        </div>
+        <div class="educol reveal">
+          <div class="colhead">Certifications</div>
+          <div class="item"><h3>Certified Cyber Security Professional</h3><div class="sub">ICTRD</div></div>
+          <div class="item"><h3>Networking &amp; Hardware Security — Advanced</h3></div>
+          <div class="item"><h3>NIST Cybersecurity Framework</h3></div>
+          <div class="item"><h3>ISO/IEC 27001</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <p class="contact-lead">Open to PhD and research opportunities in digital forensics and hardware security.</p>
+      <a class="email-big" href="mailto:zeelgondaliya122@gmail.com">zeelgondaliya122@gmail.com</a>
+      <div class="contact-row">
+       
+        <span class="btn" style="cursor:default;">London, United Kingdom</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Zeel Gondaliya</span>
+  <span>Digital forensics &amp; hardware security</span>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // scroll progress bar
+  var bar = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? h.scrollTop / max : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    reveals.forEach(function(el){ ro.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // highlight the current section in the nav
+  var links = document.querySelectorAll('.navlinks a');
+  var map = {};
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if (sec) map[id] = a;
+  });
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          links.forEach(function(a){ a.classList.remove('active'); });
+          if (map[e.target.id]) map[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function(id){ so.observe(document.getElementById(id)); });
+  }
+})();
+</script>
+
+</body>
+</html>
